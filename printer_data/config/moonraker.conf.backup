@@ -23,6 +23,10 @@ cors_domains:
 
 [octoprint_compat]
 
+[timelapse]
+	output_path: ~/printer_data/timelapse/
+	frame_path: /tmp/timelapse/printer
+
 [history]
 
 [update_manager]
@@ -55,3 +59,17 @@ path: /home/sonic/mainsail
 repo: mainsail-crew/mainsail
 channel: stable
 type: web
+
+[update_manager klipper-backup]
+type: git_repo
+path: ~/klipper-backup
+origin: https://github.com/Staubgeborener/klipper-backup.git
+managed_services: moonraker
+primary_branch: main
+
+[update_manager timelapse]
+type: git_repo
+primary_branch: main
+path: ~/moonraker-timelapse
+origin: https://github.com/mainsail-crew/moonraker-timelapse.git
+managed_services: klipper moonraker
